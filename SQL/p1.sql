@@ -1,22 +1,23 @@
 /* Authors: Jules Voltaire - javoltaire and Ebenezer Ampiah - */
 
 -- Creating the tables
-CREATE TABLE MedicalTitles (
+CREATE TABLE medical_title(
     acronym VARCHAR2(10) PRIMARY KEY,
-    titleName VARCHAR2(50)
+    title_name VARCHAR2(50)
 )
 
-CREATE TABLE Floors (
-    floorName VARCHAR2(20),
-    building VARCHAR2(20),
-    CONSTRAINT uniqueFloor UNIQUE (floorName, building)
+CREATE TABLE floor(
+    floor_id INT PRIMARY KEY,
+    floor_name VARCHAR2(20),
+    floor_building VARCHAR2(20),
+    CONSTRAINT uniqueFloor UNIQUE (floor_name, floor_building)
 )
 
-CREATE TABLE Locations(
-    locattionID NUMBER(4,0) PRIMARY KEY,
-    xCoord NUMBER(4,0),
-    yCoord NUMBER(4,0),
-    locationName VARCHAR2(10),
+CREATE TABLE location(
+    locattion_id INT PRIMARY KEY,
+    x_coord NUMBER(4,0),
+    y_coord NUMBER(4,0),
+    location_name VARCHAR2(10),
     
     CONSTRAINT uniqueCoord UNIQUE(xCoord, yCoord)
 )
