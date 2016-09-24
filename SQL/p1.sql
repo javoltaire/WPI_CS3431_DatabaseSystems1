@@ -16,6 +16,28 @@ CREATE TABLE floor(
     CONSTRAINT uniqueFloor UNIQUE (floor_name, floor_building)
 )
 
+CREATE TABLE health_care_provider(
+    provider_id NUMBER PRIMARY KEY,
+    first_name VARCHAR2(15) NOT NULL,
+    last_name VARCHAR2(20) NOT NULL,
+    title VARCHAR2(10) DEFAULT 'MD',
+    location INT,
+    CONSTRAINT fk_title FOREIGN KEY (title) REFERENCES medical_title(acronym),
+    CONSTRAINT fk_prov_location FOREIGN KEY (location) REFERENCES location(location_id)
+)
+
+CREATE TABLE Department(
+    dept_name VARCHAR2(15) PRIMARY KEY,
+    dept_type VARCHAR2(20),
+    location INT,
+    CONSTRAINT fk_dept_location FOREIGN KEY (location) REFERENCES location(location_id),
+    CONSTRAINT check_dept_type CHECK (dept_type IN ('service', 'practice'))  
+)
+
+
+
+
+
 CREATE TABLE location(
     location_id INT PRIMARY KEY,
     x_coord NUMBER(4,0),
@@ -25,22 +47,4 @@ CREATE TABLE location(
     
     
     CONSTRAINT uniqueCoord UNIQUE(xCoord, yCoord)
-)
-
-
-
-
-
-
-
-
-
-CREATE TABLE health_care_provider(
-    provider_id NUMBER PRIMARY KEY,
-    first_name VARCHAR2(15) NOT NULL,
-    last_name VARCHAR2(20) NOT NULL,
-    title VARCHAR2(10) DEFAULT 'MD',
-    location NUMBER,
-    CONSTRAINT fk_title FOREIGN KEY (title) REFERENCES medical_title(acronym)
-    CONSTRAINT fk_location FOREIGN KEY (location) REFERENCES location(location_id)
 )
