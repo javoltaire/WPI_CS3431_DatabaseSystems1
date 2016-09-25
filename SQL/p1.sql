@@ -16,6 +16,7 @@ CREATE TABLE floor(
     CONSTRAINT uniqueFloor UNIQUE (floor_name, floor_building)
 )
 
+-- Table that will hold individual locations on the map based on coordinates
 CREATE TABLE location(
     location_id INT PRIMARY KEY,
     x_coord NUMBER(4,0) NOT NULL,
@@ -23,17 +24,37 @@ CREATE TABLE location(
     location_name VARCHAR2(10),
     location_type VARCHAR2(15),
     floor INT NOT NULL,
-    CONSTRAINT uniqueCoord UNIQUE(xCoord, yCoord, floor),
+    CONSTRAINT unique_coord UNIQUE(xCoord, yCoord, floor),
     CONSTRAINT check_location_type CHECK (location_type IN ('hallway', 'office', 'service_area')),
     CONSTRAINT fk_floor FOREIGN KEY (floor) REFERENCES floor(floor_id)
 )
 
+-- This a way to connect a location to a every neighboring location, therefore creating edges,
+-- So this table essentially stores edges
 CREATE TABLE location_neighbor(
     id INT PRIMARY KEY,
     location INT NOT NULL,
     neighbor INT NOT NULL,
     CONSTRAINT unique_location_neighbor UNIQUE(location, neighbor),
-    CONSTRAINT fk_location FOREIGN KEY (location) REFERENCES location(location_id)
+    CONSTRAINT fk_location FOREIGN KEY (location) REFERENCES location(location_id),
+    CONSTRAINT fk_neighbor FOREIGN KEY (neighbor) REFERENCES location(location_id)
+)
+
+CREATE TABLE route(
+    route_id INT PRIMARY KEY,
+    start INT NOT NULL,
+    end INT NOT NULL,
+    CONSTRAINT fk_start FOREIGN KEY (start) REFERENCES location_neighbor(id),
+    CONSTRAINT fk_end FOREIGN KEY (end) REFERENCES location_neighbor(id)
+)
+
+CREATE TABLE path(
+    route INT NOT NULL,
+    edge INT NOT NULL,
+    index INT NOT NULL,
+    CONSTRAINT unique_path UNIQUE(route, edge, index),
+    CONSTRAINT fk_route FOREIGN KEY (route) REFERENCES route(route_id),
+    CONSTRAINT fk_edge FOREIGN KEY (edge) REFERENCES location_neighbor(id)
 )
 
 CREATE TABLE health_care_provider(
