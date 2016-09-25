@@ -48,7 +48,7 @@ CREATE TABLE route(
     CONSTRAINT fk_end FOREIGN KEY (end) REFERENCES location_neighbor(id)
 )
 
-CREATE TABLE path(
+CREATE TABLE route_edge(
     route INT NOT NULL,
     edge INT NOT NULL,
     index INT NOT NULL,
