@@ -58,7 +58,7 @@ CREATE TABLE route_edge(
 );
 
 CREATE TABLE health_care_provider(
-    provider_id NUMBER PRIMARY KEY,
+    provider_id INT PRIMARY KEY,
     first_name VARCHAR2(15) NOT NULL,
     last_name VARCHAR2(20) NOT NULL,
     title VARCHAR2(10) DEFAULT 'MD',
