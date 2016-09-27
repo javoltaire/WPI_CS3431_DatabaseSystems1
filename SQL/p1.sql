@@ -46,7 +46,7 @@ CREATE TABLE location(
     location_name VARCHAR2(40),
     location_type VARCHAR2(15),
     floor INT NOT NULL,
-    CONSTRAINT location_unique_coord UNIQUE(x_coord, y_coord, floor, location_name),
+    CONSTRAINT location_unique_coord UNIQUE(x_coord, y_coord, floor),
     CONSTRAINT check_hospital_location_type CHECK (location_type IN ('hallway', 'office', 'service area')),
     CONSTRAINT fk_floor FOREIGN KEY (floor) REFERENCES floor(floor_id)
 );
