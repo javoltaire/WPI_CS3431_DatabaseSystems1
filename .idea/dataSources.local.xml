@@ -8,7 +8,6 @@
       </database-info>
       <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
       <user-name>ekampiah</user-name>
       <resolve-scope>*:EKAMPIAH,PUBLIC</resolve-scope>
       <ssh-properties>
