@@ -37,10 +37,20 @@ CREATE TABLE location(
     y_coord INT NOT NULL,
     location_name VARCHAR2(40),
     location_type VARCHAR2(15),
+<<<<<<< HEAD:SQL/p1.sql
     floor char(2) NOT NULL,
+=======
+    floor INT NOT NULL,
+<<<<<<< HEAD
+    CONSTRAINT location_unique_coord UNIQUE(x_coord, y_coord, floor),
+    CONSTRAINT check_hospital_location_type CHECK (location_type IN ('hallway', 'office', 'service area')),
+    CONSTRAINT fk_floor FOREIGN KEY (floor) REFERENCES floor(floor_id)
+=======
+>>>>>>> 9bf2b59151e96d2633e14acd709553ce8c18e4dc:Work/Phase 1/p1.sql
     CONSTRAINT unique_coord UNIQUE(x_coord, y_coord, floor, location_name),
     CONSTRAINT check_location_type CHECK (location_type IN ('hallway', 'office', 'service area')),
     CONSTRAINT fk_location_floor FOREIGN KEY (floor) REFERENCES floor(id)
+>>>>>>> refs/remotes/origin/master
 );
 
 -- This a way to connect a location to a every neighboring location, therefore creating edges,
