@@ -3,12 +3,14 @@
 -- Dropping tables in case they were created
 drop table title CASCADE CONSTRAINTS ;
 drop table floor CASCADE CONSTRAINTS ;
-drop table department CASCADE CONSTRAINTS ;
+drop table service CASCADE CONSTRAINTS ;
 drop table location CASCADE CONSTRAINTS ;
 drop table neighbor CASCADE CONSTRAINTS ;
 drop table path CASCADE CONSTRAINTS ;
 drop table path_node CASCADE CONSTRAINTS ;
-drop table healthcare_provider CASCADE CONSTRAINTS ;
+drop table provider CASCADE CONSTRAINTS ;
+
+drop view filter_offices;
 
 set linesize 200;
 
@@ -22,10 +24,10 @@ CREATE TABLE title (
 -- Table that will hold a floor name and the building that it is in.
 -- Cannot have the two floors with the same name and building
 CREATE TABLE floor(
-    id INT PRIMARY KEY,
-    name VARCHAR2(20) NOT NULL,
+    id char (2) PRIMARY KEY,
+    floor_level number(2,0) NOT NULL,
     building VARCHAR2(20) NOT NULL,
-    CONSTRAINT unique_floor UNIQUE (name, building)
+    CONSTRAINT unique_floor UNIQUE (floor_level, building)
 );
 
 -- Table that will hold individual locations on the map based on coordinates
@@ -35,12 +37,16 @@ CREATE TABLE location(
     y_coord INT NOT NULL,
     location_name VARCHAR2(40),
     location_type VARCHAR2(15),
+<<<<<<< HEAD:SQL/p1.sql
+    floor char(2) NOT NULL,
+=======
     floor INT NOT NULL,
 <<<<<<< HEAD
     CONSTRAINT location_unique_coord UNIQUE(x_coord, y_coord, floor),
     CONSTRAINT check_hospital_location_type CHECK (location_type IN ('hallway', 'office', 'service area')),
     CONSTRAINT fk_floor FOREIGN KEY (floor) REFERENCES floor(floor_id)
 =======
+>>>>>>> 9bf2b59151e96d2633e14acd709553ce8c18e4dc:Work/Phase 1/p1.sql
     CONSTRAINT unique_coord UNIQUE(x_coord, y_coord, floor, location_name),
     CONSTRAINT check_location_type CHECK (location_type IN ('hallway', 'office', 'service area')),
     CONSTRAINT fk_location_floor FOREIGN KEY (floor) REFERENCES floor(id)
@@ -76,7 +82,7 @@ CREATE TABLE path_node(
     CONSTRAINT fk_node_location FOREIGN KEY (location) REFERENCES location(id)
 );
 
-CREATE TABLE healthcare_provider (
+CREATE TABLE provider (
     id INT PRIMARY KEY,
     first_name VARCHAR2(25) NOT NULL,
     last_name VARCHAR2(30) NOT NULL,
@@ -86,12 +92,12 @@ CREATE TABLE healthcare_provider (
     CONSTRAINT fk_provider_location FOREIGN KEY (location) REFERENCES location(id)
 );
 
-CREATE TABLE department (
+CREATE TABLE service (
     name VARCHAR2(15) PRIMARY KEY,
     type VARCHAR2(20),
     location INT,
-    CONSTRAINT fk_department_location FOREIGN KEY (location) REFERENCES location(id),
-    CONSTRAINT department_type_check CHECK (type IN ('service', 'practice'))
+    CONSTRAINT fk_service_location FOREIGN KEY (location) REFERENCES location(id),
+    CONSTRAINT service_type_check CHECK (type IN ('service', 'practice'))
 );
 
 insert into title values('MD','Doctor of Medicine');
@@ -111,63 +117,63 @@ insert into title values('MEd','Doctor of Medicine');
 insert into title values('LADC I','Licensed Alcohol and Drug Counselor I');
 insert into title values('PhD','Doctor of Philosophy');
 
-insert into floor values (1, '1st Floor', 'Faulkner Hospital');
-insert into floor values (2, '3rd Floor', 'Faulkner Hospital');
+insert into floor values ('F1', 1, 'Faulkner Hospital');
+insert into floor values ('F3', 3, 'Faulkner Hospital');
 
-insert into location values (67,-2,-3,'Chapel','office',2);
-insert into location values (70,-2,-2,'Hillside Elevators','service area',2);
-insert into location values (69,-1,-3,'Kiosk Location','service area',2);
-insert into location values (61,-1,-1,'Gift Shop','service area',2);
-insert into location values (60,-1,0,'Huros Auditorium','service area',2);
-insert into location values (48,-1,1,'H303','hallway',2);
-insert into location values (62,-1,2,'Atrium Elevators','service area',2);
-insert into location values (25,-1,3,'Colorectal Surgery','service area',2);
-insert into location values (63,-1,3,'3A','office',2);
-insert into location values (72,0,-4,'Shuttle Pickup','service area',2);
-insert into location values (50,0,-2,'H305','hallway',2);
-insert into location values (46,0,-1,'H301','hallway',2);
-insert into location values (28,0,0,'Emergency Department','service area',1);
-insert into location values (45,0,0,'H300','hallway',2);
-insert into location values (47,0,1,'H302','hallway',2);
-insert into location values (49,0,2,'H304','hallway',2);
-insert into location values (68,0,-3,'Hillside Lobby','service area',2);
-insert into location values (71,1,-3,'Volunteer Services','office',2);
-insert into location values (1,1,1,'Atrium Café','service area',2);
-insert into location values (29,1,1,'H100','hallway',1);
-insert into location values (66,1,1,'Cafeteria','service area',1);
-insert into location values (26,1,2,'Dialysis Clinic','service area',1);
-insert into location values (31,1,2,'H102','hallway',1);
-insert into location values (64,1,2,'3B','office',2);
-insert into location values (32,1,4,'H103','hallway',1);
-insert into location values (30,2,1,'H101','hallway',1);
-insert into location values (21,2,2,'Dialysis Clinic','service area',2);
-insert into location values (27,2,2,'Doherty Conference Room','service area',1);
-insert into location values (51,2,2,'Family Center','office',1);
-insert into location values (65,2,2,'3C','office',2);
-insert into location values (53,3,-2,'Endoscopy','office',1);
-insert into location values (41,3,-1,'H112','hallway',1);
-insert into location values (33,3,1,'H104','hallway',1);
-insert into location values (52,3,3,'Patient Registration','office',1);
-insert into location values (34,4,1,'H105','hallway',1);
-insert into location values (57,4,5,'StarBucks','service area',1);
-insert into location values (43,5,-3,'H114','hallway',1);
-insert into location values (58,5,4,'Kiosk Location','service area',1);
-insert into location values (44,6,-3,'H115','hallway',1);
-insert into location values (39,6,-2,'H110','hallway',1);
-insert into location values (40,6,-1,'H111','hallway',1);
-insert into location values (35,6,1,'H106','hallway',1);
-insert into location values (42,6,4,'H113','hallway',1);
-insert into location values (56,6,5,'Atrium Lobby','service area',1);
-insert into location values (59,6,6,'Atrium Main Entrance','service area',1);
-insert into location values (54,7,0,'Preoperation Evaluation','office',1);
-insert into location values (38,8,-2,'H109','hallway',1);
-insert into location values (36,8,1,'H107','hallway',1);
-insert into location values (55,9,-2,'Day Surgery','office',1);
-insert into location values (37,9,1,'H108','hallway',1);
-insert into location values (73,4,0,'Blood Draw Testing','office',1);
-insert into location values (74,6,0,'H116','hallway',1);
-insert into location values (75,8,2,'H117','hallway',1);
-insert into location values (76,9,0,'Radiology','office',1);
+insert into location values (63,-1,3,'3A','office','F3');
+insert into location values (64,1,2,'3B','office','F3');
+insert into location values (65,2,2,'3C','office','F3');
+insert into location values (1,1,1,'Atrium Café','service area','F3');
+insert into location values (62,-1,2,'Atrium Elevators','service area','F3');
+insert into location values (56,6,5,'Atrium Lobby','service area','F1');
+insert into location values (59,6,6,'Atrium Main Entrance','service area','F1');
+insert into location values (73,4,0,'Blood Draw Testing','office','F1');
+insert into location values (66,1,1,'Cafeteria','service area','F1');
+insert into location values (67,-2,-3,'Chapel','office','F3');
+insert into location values (55,9,-2,'Day Surgery','office','F1');
+insert into location values (26,1,2,'Dialysis Clinic','service area','F1');
+insert into location values (21,2,2,'Dialysis Clinic','service area','F3');
+insert into location values (27,2,2,'Doherty Conference Room','service area','F1');
+insert into location values (28,0,0,'Emergency Department','service area','F1');
+insert into location values (53,3,-2,'Endoscopy','office','F1');
+insert into location values (51,2,2,'Family Center','office','F1');
+insert into location values (61,-1,-1,'Gift Shop','service area','F3');
+insert into location values (29,1,1,'H100','hallway','F1');
+insert into location values (30,2,1,'H101','hallway','F1');
+insert into location values (31,1,2,'H102','hallway','F1');
+insert into location values (32,1,4,'H103','hallway','F1');
+insert into location values (33,3,1,'H104','hallway','F1');
+insert into location values (34,4,1,'H105','hallway','F1');
+insert into location values (35,6,1,'H106','hallway','F1');
+insert into location values (36,8,1,'H107','hallway','F1');
+insert into location values (37,9,1,'H108','hallway','F1');
+insert into location values (38,8,-2,'H109','hallway','F1');
+insert into location values (39,6,-2,'H110','hallway','F1');
+insert into location values (40,6,-1,'H111','hallway','F1');
+insert into location values (41,3,-1,'H112','hallway','F1');
+insert into location values (42,6,4,'H113','hallway','F1');
+insert into location values (43,5,-3,'H114','hallway','F1');
+insert into location values (44,6,-3,'H115','hallway','F1');
+insert into location values (74,6,0,'H116','hallway','F1');
+insert into location values (75,8,2,'H117','hallway','F1');
+insert into location values (45,0,0,'H300','hallway','F3');
+insert into location values (46,0,-1,'H301','hallway','F3');
+insert into location values (47,0,1,'H302','hallway','F3');
+insert into location values (48,-1,1,'H303','hallway','F3');
+insert into location values (49,0,2,'H304','hallway','F3');
+insert into location values (50,0,-2,'H305','hallway','F3');
+insert into location values (70,-2,-2,'Hillside Elevators','service area','F3');
+insert into location values (68,0,-3,'Hillside Lobby','service area','F3');
+insert into location values (60,-1,0,'Huros Auditorium','service area','F3');
+insert into location values (69,-1,-3,'Kiosk Location','service area','F3');
+insert into location values (58,5,4,'Kiosk Location','service area','F1');
+insert into location values (52,3,3,'Patient Registration','office','F1');
+insert into location values (54,7,0,'Preoperation Evaluation','office','F1');
+insert into location values (76,9,0,'Radiology','office','F1');
+insert into location values (72,0,-4,'Shuttle Pickup','service area','F3');
+insert into location values (57,4,5,'StarBucks','service area','F1');
+insert into location values (71,1,-3,'Volunteer Services','office','F3');
+
 
 insert into neighbor values (48,49);
 insert into neighbor values (50,68);
@@ -214,33 +220,77 @@ insert into neighbor values (36,75);
 insert into neighbor values (37,76);
 insert into neighbor values (37,36);
 
-insert into healthcare_provider values (1,'Christopher','Chiodo','MD',63);
-insert into healthcare_provider values (2,'Yoon Sun','Chun','MD',63);
-insert into healthcare_provider values (3,'Roger','Clark','DO',63);
-insert into healthcare_provider values (4,'Thomas','Cochrane','MD',63);
-insert into healthcare_provider values (5,'Jeffrey','Cohen','MD',63);
-insert into healthcare_provider values (6,'Natalie','Cohen','MD',63);
-insert into healthcare_provider values (7,'Alene','Conant','MD',63);
-insert into healthcare_provider values (8,'Nathan','Connell','MD',63);
-insert into healthcare_provider values (9,'Maria','Copello','MD',63);
-insert into healthcare_provider values (10,'Carleton Eduardo','Corrales','MD',63);
-insert into healthcare_provider values (11,'Garth Rees','Cosgrove','MD',63);
-insert into healthcare_provider values (12,'Lindsay','Cotter','LCSW',64);
-insert into healthcare_provider values (13,'Christopher','Cua','MD',64);
-insert into healthcare_provider values (14,'Carolyn','DAmbrosio','MD',64);
-insert into healthcare_provider values (15,'Harriet','Dann','MD',64);
-insert into healthcare_provider values (16,'Jatin','Dave','MD',64);
-insert into healthcare_provider values (17,'Paul','Davidson','PhD',65);
-insert into healthcare_provider values (18,'Courtney','Dawson','MD',65);
-insert into healthcare_provider values (19,'Sherrie','Divito','PhD',65);
-insert into healthcare_provider values (20,'Meghan','Doherty','LCSW',65);
-insert into healthcare_provider values (21,'Laura','Dominici','MD',65);
+insert into provider values (1,'Christopher','Chiodo','MD',63);
+insert into provider values (2,'Yoon Sun','Chun','MD',63);
+insert into provider values (3,'Roger','Clark','DO',63);
+insert into provider values (4,'Thomas','Cochrane','MD',63);
+insert into provider values (5,'Jeffrey','Cohen','MD',63);
+insert into provider values (6,'Natalie','Cohen','MD',63);
+insert into provider values (7,'Alene','Conant','MD',63);
+insert into provider values (8,'Nathan','Connell','MD',63);
+insert into provider values (9,'Maria','Copello','MD',63);
+insert into provider values (10,'Carleton Eduardo','Corrales','MD',63);
+insert into provider values (11,'Garth Rees','Cosgrove','MD',63);
+insert into provider values (12,'Lindsay','Cotter','LCSW',64);
+insert into provider values (13,'Christopher','Cua','MD',64);
+insert into provider values (14,'Carolyn','DAmbrosio','MD',64);
+insert into provider values (15,'Harriet','Dann','MD',64);
+insert into provider values (16,'Jatin','Dave','MD',64);
+insert into provider values (17,'Paul','Davidson','PhD',65);
+insert into provider values (18,'Courtney','Dawson','MD',65);
+insert into provider values (19,'Sherrie','Divito','PhD',65);
+insert into provider values (20,'Meghan','Doherty','LCSW',65);
+insert into provider values (21,'Laura','Dominici','MD',65);
 
-select * from department;
+select * from service;
 select * from title;
 select * from floor;
 select * from location;
 select * from location_neighbor;
 select * from path;
 select * from path_node;
-select * from healthcare_provider;
+select * from provider;
+
+---------- Part 2 ---------
+create view filter_offices as
+(select id as location_id
+from location
+where location_type not in ('hallway', 'elevator'));
+
+select title, location_id, count(distinct location_id)
+from filter_offices, provider
+where location_id = provider.location
+and title in ('MD', 'RN')
+group by title, location_id;
+
+
+-- Create or Replace Procedure ProviderLocation (LocationName VARCHAR2(50)) Is
+-- cursor C1 is
+-- select * 
+-- from filter_offices, location
+-- where filter_offices.location_id = location.id
+-- and location.name = LocationName;
+--      Begin
+--          For rec in C1  Loop
+--          dbms_output.put_line('location ' || LocationName)
+--             End Loop;
+--      End;
+-- /
+
+Create or replace Trigger InvalidLocation
+before insert on provider
+for each row
+Begin
+select floor_level
+from location
+where id = (:new.location);
+
+    if(floor_level == 1) then
+    dbms_output.put_line('invalid location for provider!');
+    end if;
+End;
+/
+
+
+insert into provider values (20,'Meghan','Doherty','LCSW',65);
+insert into provider values (21,'Laura','Dominici','MD',55);
