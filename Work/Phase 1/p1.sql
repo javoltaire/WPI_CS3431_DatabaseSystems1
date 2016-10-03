@@ -40,7 +40,7 @@ CREATE TABLE location(
     floor char(2) NOT NULL,
     Constraint unique_name UNIQUE(location_name),
     CONSTRAINT unique_coord UNIQUE(x_coord, y_coord, floor, location_name),
-    CONSTRAINT check_location_type CHECK (location_type IN ('hallway', 'office', 'service area')),
+    CONSTRAINT check_location_type CHECK (location_type IN ('hallway', 'office', 'service area', 'elevator')),
     CONSTRAINT fk_location_floor FOREIGN KEY (floor) REFERENCES floor(id)
 );
 
@@ -123,7 +123,7 @@ insert into floor values ('F5', 5, 'Faulkner Hospital');
 insert into location values (1,-1,3,'3A','office','F3');
 insert into location values (2,1,2,'3B','office','F3');
 insert into location values (3,2,2,'3C','office','F3');
-insert into location values (4,-1,2,'Atrium Elevators','service area','F3');
+insert into location values (4,-1,2,'Atrium Elevators','elevator','F3');
 insert into location values (5,6,5,'Atrium Lobby','service area','F1');
 insert into location values (6,1,1,'H100','hallway','F1');
 insert into location values (7,2,1,'H101','hallway','F1');
@@ -149,7 +149,7 @@ insert into location values (26,0,1,'H302','hallway','F3');
 insert into location values (27,-1,1,'H303','hallway','F3');
 insert into location values (28,0,2,'H304','hallway','F3');
 insert into location values (29,0,-2,'Hillside Lobby','hallway','F3');
-insert into location values (30,-2,-2,'Hillside Elevators','service area','F3');
+insert into location values (30,-2,-2,'Hillside Elevators','elevator','F3');
 insert into location values (31,6,0,'5S','service area','F5');
 insert into location values (32,0,0,'5N','service area','F5');
 insert into location values (33,2,7,'5A','office','F5');
@@ -504,6 +504,7 @@ drop view count_providers;
 
 --- Part 1 ----
 set serveroutput on;
+
 create view filter_offices as
 (select location_name
 from location
@@ -546,12 +547,11 @@ END get_providers;
 
 ---------- Part 2 -----------
 Create or replace Trigger invalid_provider_location
-before insert on provider
+before insert or update on provider
 for each row
   DECLARE
     f_level INTEGER;
   Begin
-    Cursor c1 is
     select FLOOR_LEVEL into f_level
     from floor, LOCATION
     where LOCATION.FLOOR = floor.ID
@@ -581,14 +581,6 @@ for each row
   End;
   /
 
-
--- delete from provider where id = 106;
--- delete from provider where id = 107;
---
--- insert into provider values (106,'Kwame','Ampiah','Atrium Lobby');
--- insert into provider values (107,'Jules','Voltaire','3A');
-
-
 Create or replace Trigger redo_insert
 before insert on provider
 for each row
@@ -599,16 +591,9 @@ for each row
     FROM provider, LOCATION
     WHERE provider.location = :new.LOCATION;
     if(counter >= 20 and :new.LOCATION != '5A') then
-      insert into provider values (:new.id, :new.FIRST_NAME, :new.LAST_NAME, '5A');
+      :new.location := '5A';
     end if;
   End;
   /
 
-
--- insert into PROVIDER_TITLE values (107, 'MD');
--- insert into PROVIDER_TITLE values (107, 'RN');
--- insert into PROVIDER_TITLE values (107, 'PhD');
--- insert into PROVIDER_TITLE values (107, 'LICSW');
---
--- delete from provider where id = 109;
-insert into provider values (109,'Something','Strange','5S');
+insert into provider values (120,'Something','Strange','5S');
