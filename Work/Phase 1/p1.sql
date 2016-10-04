@@ -563,6 +563,9 @@ for each row
   End;
   /
 
+delete from provider where id = 102;
+insert into provider values (101,'Ebenezer','Ampiah','Atrium Lobby');
+insert into provider values (102,'Jules','Voltaire','5M');
 
 Create or replace Trigger invalid_num_titles
 before insert on provider_title
@@ -581,6 +584,14 @@ for each row
   End;
   /
 
+delete from provider_title where provider_id = 101;
+delete from provider where id = 101;
+insert into provider values (101,'Ebenezer','Ampiah','5A');
+insert into provider_title values (101,'LICSW');
+insert into provider_title values (101,'MD');
+insert into provider_title values (101,'PhD');
+insert into provider_title values (101,'CPNP'); 
+
 Create or replace Trigger redo_insert
 before insert on provider
 for each row
@@ -595,6 +606,10 @@ for each row
     end if;
   End;
   /
+
+delete from provider where id = 103 or id = 104;
+insert into provider values (103,'Ebenezer','Ampiah','5S');
+insert into provider values (104,'Jules','Voltaire','5M');
 
 create or replace function get_floor_level(location_id number) Return NUMBER Is
      level1 number;
@@ -623,11 +638,11 @@ level1 := get_floor_level(:new.point_a);
 level2 := get_floor_level(:new.point_b);
 
 if(level1 != level2 and loc_type != 'elevator') then
-  raise_application_error(-20003, 'invalid floors for neighbors');
+  raise_application_error(-20003, 'Only elevators can have neighbors on different floors');
 end if;
 End;
   /
 
-
+delete from neighbor where point_a = 30 and point_b = 31;
 insert into neighbor values (51, 53);
 insert into neighbor values (30, 31);
