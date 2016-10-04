@@ -32,9 +32,9 @@ CREATE TABLE floor(
 
 -- Table that will hold individual locations on the map based on coordinates
 CREATE TABLE location(
-    id INT PRIMARY KEY,
-    x_coord INT NOT NULL,
-    y_coord INT NOT NULL,
+    id number PRIMARY KEY,
+    x_coord number NOT NULL,
+    y_coord number NOT NULL,
     location_name VARCHAR2(30),
     location_type VARCHAR2(15),
     floor char(2) NOT NULL,
@@ -47,17 +47,17 @@ CREATE TABLE location(
 -- This a way to connect a location to a every neighboring location, therefore creating edges,
 -- So this table essentially stores edges
 CREATE TABLE neighbor(
-    point_a INT NOT NULL,
-    point_b INT NOT NULL,
+    point_a number NOT NULL,
+    point_b number NOT NULL,
     CONSTRAINT u_location_neighbor UNIQUE(point_a, point_b),
     CONSTRAINT fk_point_a_location FOREIGN KEY (point_a) REFERENCES location(id),
     CONSTRAINT fk_point_b_location FOREIGN KEY (point_b) REFERENCES location(id)
 );
 
 CREATE TABLE path (
-    id INT PRIMARY KEY,
-    start_location INT NOT NULL,
-    end_location INT NOT NULL,
+    id number PRIMARY KEY,
+    start_location number NOT NULL,
+    end_location number NOT NULL,
     CONSTRAINT fk_start_location FOREIGN KEY (start_location) REFERENCES location(id),
     CONSTRAINT fk_end_location FOREIGN KEY (end_location) REFERENCES location(id)
 );
@@ -65,16 +65,16 @@ CREATE TABLE path (
 
 
 CREATE TABLE path_node(
-    path_id INT NOT NULL,
-    location INT NOT NULL,
-    position INT NOT NULL,
+    path_id number NOT NULL,
+    location number NOT NULL,
+    position number NOT NULL,
     CONSTRAINT u_path UNIQUE(path_id, position),
     CONSTRAINT fk_node_path FOREIGN KEY (path_id) REFERENCES path (id),
     CONSTRAINT fk_node_location FOREIGN KEY (location) REFERENCES location(id)
 );
 
 CREATE TABLE provider (
-    id INT PRIMARY KEY,
+    id number PRIMARY KEY,
     first_name VARCHAR2(25) NOT NULL,
     last_name VARCHAR2(30) NOT NULL,
     location varchar2(30),
@@ -82,7 +82,7 @@ CREATE TABLE provider (
 );
 
 create table provider_title(
-    provider_id int not null,
+    provider_id number not null,
     title varchar2(10) Default 'MD',
     Constraint unique_title_combo UNIQUE (provider_id, title),
     CONSTRAINT fk_provider_title_title FOREIGN KEY (title) REFERENCES title (acronym)
@@ -150,8 +150,8 @@ insert into location values (27,-1,1,'H303','hallway','F3');
 insert into location values (28,0,2,'H304','hallway','F3');
 insert into location values (29,0,-2,'Hillside Lobby','hallway','F3');
 insert into location values (30,-2,-2,'Hillside Elevators','elevator','F3');
-insert into location values (31,6,0,'5S','service area','F5');
-insert into location values (32,0,0,'5N','service area','F5');
+insert into location values (31,6,0,'5S','office','F5');
+insert into location values (32,0,0,'5N','office','F5');
 insert into location values (33,2,7,'5A','office','F5');
 insert into location values (34,3,8,'5B','office','F5');
 insert into location values (35,4,8,'5C','office','F5');
@@ -510,7 +510,7 @@ create view filter_offices as
 from location
 where location_type not in ('hallway', 'elevator'));
 
-select title, location_name, count(distinct location_name)
+select title, location_name, count(location_name)
 from filter_offices, provider, provider_title
 where location_name = provider.location
 and provider.id = provider_title.provider_id
@@ -596,4 +596,38 @@ for each row
   End;
   /
 
-insert into provider values (120,'Something','Strange','5S');
+create or replace function get_floor_level(location_id number) Return NUMBER Is
+     level1 number;
+     Begin
+          select floor_level into level1
+from floor, location
+where location.floor = floor.id
+and location.id = location_id;
+          Return(level1);
+     End;
+/
+
+
+Create or replace Trigger neighbor_check
+before insert on neighbor
+for each row
+DECLARE
+loc_type varchar2(15);
+level1 number;
+level2 number;
+Begin 
+select location_type into loc_type
+from location
+where id = :new.point_a;
+level1 := get_floor_level(:new.point_a);
+level2 := get_floor_level(:new.point_b);
+
+if(level1 != level2 and loc_type != 'elevator') then
+  raise_application_error(-20003, 'invalid floors for neighbors');
+end if;
+End;
+  /
+
+
+insert into neighbor values (51, 53);
+insert into neighbor values (30, 31);
