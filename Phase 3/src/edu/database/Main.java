@@ -57,7 +57,7 @@ public class Main {
             case 2:
                 secondOption();
                 break;
-            case 3: ; break;
+            case 3: thirdOption(); break;
             case 4: ; break;
         }
     }
@@ -265,14 +265,28 @@ public class Main {
 
     }
 
-    class Service{
-        String name, type, location, floor;
+    class Path{
+        String start, end;
+        int pathID;
+        List<PathNode> pathNodes;
 
-        public Service(String name, String type, String location, String floor){
-            this.name = name;
-            this.type = type;
-            this.location = location;
-            this.floor = floor;
+
+        public Path(String start, String end, List<PathNode> pathNodes){
+            this.start = start;
+            this.end = end;
+            this.pathNodes = pathNodes;
         }
+
+        private class PathNode{
+            int order;
+            String location, floorID;
+
+            public PathNode(int order, String location, String floorID){
+                this.order = order;
+                this.location = location;
+                this.floorID = floorID;
+            }
+        }
+
     }
 }
