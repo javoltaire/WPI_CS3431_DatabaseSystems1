@@ -208,8 +208,11 @@ public class Main {
 
     }
 
+    /**
+     * This method should be executed when 4 is entered as
+     */
     private void fourthOption(){
-
+        System.out.println("Enter Health Service Name: ")
     }
 
     class Provider{
