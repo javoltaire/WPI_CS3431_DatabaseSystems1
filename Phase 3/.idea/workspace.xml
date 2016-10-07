@@ -13,17 +13,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DatabaseView">
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -34,32 +25,38 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/database/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="135">
-              <caret line="160" column="36" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
+            <state relative-caret-position="357">
+              <caret line="226" column="41" selection-start-line="226" selection-start-column="41" selection-end-line="226" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#secondOption#0;class#Main#0" expanded="false" />
+                <element signature="method#runApp#0;class#Main#0" expanded="false" />
+                <element signature="method#firstOption#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#thirdOption#0;class#Main#0" expanded="false" />
+                <element signature="method#thirdOption#0;class#Main#0" expanded="false" />
                 <element signature="class#Provider#0;class#Main#0" expanded="false" />
-                <marker date="1475869910000" expanded="false" signature="1985:2157" ph="Select First... Provider" />
-                <marker date="1475869910000" expanded="true" signature="1985:2225" ph="Select First... Provider" />
-                <marker date="1475869910000" expanded="true" signature="1985:2357" ph="Select First... Provider" />
-                <marker date="1475869910000" expanded="true" signature="4108:4279" ph="select Servi... Services" />
-                <marker date="1475869910000" expanded="true" signature="4108:4280" ph="select Servi... Services" />
-                <marker date="1475869910000" expanded="true" signature="4108:4419" ph="select Servi... Services" />
-=======
-            <state relative-caret-position="757">
-              <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-              <folding>
-                <marker date="1475868841890" expanded="true" signature="1972:2344" ph=" SELECT statement (LOCATION, OFFICE, PROVIDERTITLE...)" />
-                <marker date="1475868841890" expanded="true" signature="4095:4406" ph=" SELECT statement (LOCATION, SERVICES, RESIDESIN)" />
-                <marker date="1475868841890" expanded="true" signature="5920:6059" ph=" SELECT statement" />
-                <marker date="1475868841890" expanded="true" signature="6231:6423" ph=" SELECT statement" />
-                <marker date="1475868841890" expanded="true" signature="6582:6690" ph=" SELECT statement (MISSINGVALUE)" />
-                <marker date="1475868841890" expanded="true" signature="6846:6925" ph=" SELECT statement (PATHCONTAINSWHERE)" />
-                <marker date="1475868841890" expanded="true" signature="7045:7266" ph=" SELECT statement" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
+                <marker date="1475877368000" expanded="false" signature="1999:2171" ph="Select First... Provider" />
+                <marker date="1475877368000" expanded="true" signature="1999:2239" ph="Select First... Provider" />
+                <marker date="1475877368000" expanded="true" signature="1999:2371" ph="Select First... Provider" />
+                <marker date="1475877368000" expanded="true" signature="4148:4319" ph="select Servi... Services" />
+                <marker date="1475877368000" expanded="true" signature="4148:4320" ph="select Servi... Services" />
+                <marker date="1475877368000" expanded="true" signature="4148:4459" ph="select Servi... Services" />
+                <marker date="1475877368000" expanded="true" signature="5981:6124" ph="select PathI... " />
+                <marker date="1475877368000" expanded="true" signature="6302:6558" ph="select PathI... " />
+                <marker date="1475877368000" expanded="true" signature="6665:6775" ph="select PathI... missingValue" />
+                <marker date="1475877368000" expanded="true" signature="6937:7047" ph="select * fro... PathContainswhere" />
+                <marker date="1475877368000" expanded="true" signature="7144:7369" ph="select PathC... " />
+                <marker date="1475877368000" expanded="true" signature="8178:8277" ph="update Resid... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreparedStatement.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,8 +64,18 @@
       <file leaf-file-name="p3start.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p3start.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="121" column="10" selection-start-line="121" selection-start-column="10" selection-end-line="121" selection-end-column="10" />
+            <state relative-caret-position="330">
+              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27a603fe-d464-4630-8449-b95d2539b8be/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -84,7 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/p3start.sql" />
         <option value="$PROJECT_DIR$/src/edu/database/Main.java" />
       </list>
     </option>
@@ -95,25 +101,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectFrameBounds">
-<<<<<<< HEAD
-    <option name="x" value="620" />
-    <option name="y" value="128" />
-    <option name="width" value="933" />
-    <option name="height" value="875" />
-=======
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="3022" />
-    <option name="height" value="1962" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
+    <option name="x" value="510" />
+    <option name="y" value="127" />
+    <option name="width" value="1123" />
+    <option name="height" value="837" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -140,23 +132,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="Scratches" />
-=======
-      <pane id="Scratches" />
-      <pane id="Scope" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Phase 3" />
-<<<<<<< HEAD
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-=======
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -169,25 +152,6 @@
               <option name="myItemId" value="Phase 3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Phase 3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Phase 3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
           </PATH>
         </subPane>
       </pane>
@@ -209,7 +173,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="edu.database.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="ekampiah Ampiah45 2" />
+      <option name="PROGRAM_PARAMETERS" value="ekampiah Ampiah45" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -235,8 +199,13 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method />
@@ -255,8 +224,13 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -274,6 +248,136 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -288,6 +392,15 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -353,6 +466,9 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -375,6 +491,15 @@
       <option name="passParentEnvs" value="true" />
       <option name="workingDirectory" />
       <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
       <envs />
       <method />
     </configuration>
@@ -434,6 +559,41 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
@@ -446,9 +606,6 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f381ae9e-1a0f-40ba-857b-c7067067b83f" name="Default" comment="" />
@@ -459,60 +616,42 @@
       <workItem from="1475785101335" duration="8723000" />
       <workItem from="1475798792884" duration="346000" />
       <workItem from="1475799165154" duration="206000" />
-      <workItem from="1475866492665" duration="1903000" />
+      <workItem from="1475866492665" duration="4115000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11178000" />
+    <option name="totallyTimeSpent" value="13390000" />
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
-    <frame x="620" y="128" width="933" height="875" extended-state="0" />
+    <frame x="510" y="127" width="1123" height="837" extended-state="0" />
     <editor active="true" />
-=======
-    <frame x="-11" y="-11" width="3022" height="1962" extended-state="6" />
-    <editor active="false" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
     <layout>
+      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-=======
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29078013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38942978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16281222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-<<<<<<< HEAD
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-<<<<<<< HEAD
-=======
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -529,7 +668,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -543,16 +682,24 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-<<<<<<< HEAD
             <element signature="imports" expanded="true" />
-            <element signature="method#secondOption#0;class#Main#0" expanded="false" />
+            <element signature="method#runApp#0;class#Main#0" expanded="false" />
+            <element signature="method#firstOption#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#thirdOption#0;class#Main#0" expanded="false" />
+            <element signature="method#thirdOption#0;class#Main#0" expanded="false" />
             <element signature="class#Provider#0;class#Main#0" expanded="false" />
-            <marker date="1475869910000" expanded="false" signature="1985:2157" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="1985:2225" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="1985:2357" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="4108:4279" ph="select Servi... Services" />
-            <marker date="1475869910000" expanded="true" signature="4108:4280" ph="select Servi... Services" />
-            <marker date="1475869910000" expanded="true" signature="4108:4419" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="false" signature="1999:2171" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="1999:2239" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="1999:2371" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="4148:4319" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="4148:4320" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="4148:4459" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="5981:6124" ph="select PathI... " />
+            <marker date="1475877368000" expanded="true" signature="6302:6558" ph="select PathI... " />
+            <marker date="1475877368000" expanded="true" signature="6665:6775" ph="select PathI... missingValue" />
+            <marker date="1475877368000" expanded="true" signature="6937:7047" ph="select * fro... PathContainswhere" />
+            <marker date="1475877368000" expanded="true" signature="7144:7369" ph="select PathC... " />
+            <marker date="1475877368000" expanded="true" signature="8178:8277" ph="update Resid... " />
           </folding>
         </state>
       </provider>
@@ -563,68 +710,23 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#secondOption#0;class#Main#0" expanded="false" />
+            <element signature="method#runApp#0;class#Main#0" expanded="false" />
+            <element signature="method#firstOption#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#thirdOption#0;class#Main#0" expanded="false" />
+            <element signature="method#thirdOption#0;class#Main#0" expanded="false" />
             <element signature="class#Provider#0;class#Main#0" expanded="false" />
-            <marker date="1475869910000" expanded="false" signature="1985:2157" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="1985:2225" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="1985:2357" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="4108:4279" ph="select Servi... Services" />
-            <marker date="1475869910000" expanded="true" signature="4108:4280" ph="select Servi... Services" />
-            <marker date="1475869910000" expanded="true" signature="4108:4419" ph="select Servi... Services" />
-=======
-            <marker date="1475868841890" expanded="true" signature="1972:2344" ph=" SELECT statement (LOCATION, OFFICE, PROVIDERTITLE...)" />
-            <marker date="1475868841890" expanded="true" signature="4095:4406" ph=" SELECT statement (LOCATION, SERVICES, RESIDESIN)" />
-            <marker date="1475868841890" expanded="true" signature="5920:6059" ph=" SELECT statement" />
-            <marker date="1475868841890" expanded="true" signature="6231:6423" ph=" SELECT statement" />
-            <marker date="1475868841890" expanded="true" signature="6582:6690" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1475868841890" expanded="true" signature="6846:6925" ph=" SELECT statement (PATHCONTAINSWHERE)" />
-            <marker date="1475868841890" expanded="true" signature="7045:7266" ph=" SELECT statement" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p3start.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/database/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-<<<<<<< HEAD
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/database/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="160" column="36" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#secondOption#0;class#Main#0" expanded="false" />
-            <element signature="class#Provider#0;class#Main#0" expanded="false" />
-            <marker date="1475869910000" expanded="false" signature="1985:2157" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="1985:2225" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="1985:2357" ph="Select First... Provider" />
-            <marker date="1475869910000" expanded="true" signature="4108:4279" ph="select Servi... Services" />
-            <marker date="1475869910000" expanded="true" signature="4108:4280" ph="select Servi... Services" />
-            <marker date="1475869910000" expanded="true" signature="4108:4419" ph="select Servi... Services" />
-=======
-          <folding>
-            <marker date="1475868841890" expanded="true" signature="1972:2344" ph=" SELECT statement (LOCATION, OFFICE, PROVIDERTITLE...)" />
-            <marker date="1475868841890" expanded="true" signature="4095:4406" ph=" SELECT statement (LOCATION, SERVICES, RESIDESIN)" />
-            <marker date="1475868841890" expanded="true" signature="5920:6059" ph=" SELECT statement" />
-            <marker date="1475868841890" expanded="true" signature="6231:6423" ph=" SELECT statement" />
-            <marker date="1475868841890" expanded="true" signature="6582:6690" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1475868841890" expanded="true" signature="6846:6925" ph=" SELECT statement (PATHCONTAINSWHERE)" />
-            <marker date="1475868841890" expanded="true" signature="7045:7266" ph=" SELECT statement" />
->>>>>>> 2462947f6f5f53bdd44c87fd0b4010f0615b29dd
+            <marker date="1475877368000" expanded="false" signature="1999:2171" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="1999:2239" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="1999:2371" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="4148:4319" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="4148:4320" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="4148:4459" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="5981:6124" ph="select PathI... " />
+            <marker date="1475877368000" expanded="true" signature="6302:6558" ph="select PathI... " />
+            <marker date="1475877368000" expanded="true" signature="6665:6775" ph="select PathI... missingValue" />
+            <marker date="1475877368000" expanded="true" signature="6937:7047" ph="select * fro... PathContainswhere" />
+            <marker date="1475877368000" expanded="true" signature="7144:7369" ph="select PathC... " />
+            <marker date="1475877368000" expanded="true" signature="8178:8277" ph="update Resid... " />
           </folding>
         </state>
       </provider>
@@ -637,106 +739,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27a603fe-d464-4630-8449-b95d2539b8be/console.sql" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27a603fe-d464-4630-8449-b95d2539b8be/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27a603fe-d464-4630-8449-b95d2539b8be/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/p3start.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="121" column="10" selection-start-line="121" selection-start-column="10" selection-end-line="121" selection-end-column="10" />
+        <state relative-caret-position="330">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27a603fe-d464-4630-8449-b95d2539b8be/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="617" column="7" selection-start-line="617" selection-start-column="7" selection-end-line="617" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/database/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="226" column="41" selection-start-line="226" selection-start-column="41" selection-end-line="226" selection-end-column="41" />
           <folding>
-            <marker date="1475868841890" expanded="true" signature="1972:2344" ph=" SELECT statement (LOCATION, OFFICE, PROVIDERTITLE...)" />
-            <marker date="1475868841890" expanded="true" signature="4095:4406" ph=" SELECT statement (LOCATION, SERVICES, RESIDESIN)" />
-            <marker date="1475868841890" expanded="true" signature="5920:6059" ph=" SELECT statement" />
-            <marker date="1475868841890" expanded="true" signature="6231:6423" ph=" SELECT statement" />
-            <marker date="1475868841890" expanded="true" signature="6582:6690" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1475868841890" expanded="true" signature="6846:6925" ph=" SELECT statement (PATHCONTAINSWHERE)" />
-            <marker date="1475868841890" expanded="true" signature="7045:7266" ph=" SELECT statement" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#runApp#0;class#Main#0" expanded="false" />
+            <element signature="method#firstOption#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#thirdOption#0;class#Main#0" expanded="false" />
+            <element signature="method#thirdOption#0;class#Main#0" expanded="false" />
+            <element signature="class#Provider#0;class#Main#0" expanded="false" />
+            <marker date="1475877368000" expanded="false" signature="1999:2171" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="1999:2239" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="1999:2371" ph="Select First... Provider" />
+            <marker date="1475877368000" expanded="true" signature="4148:4319" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="4148:4320" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="4148:4459" ph="select Servi... Services" />
+            <marker date="1475877368000" expanded="true" signature="5981:6124" ph="select PathI... " />
+            <marker date="1475877368000" expanded="true" signature="6302:6558" ph="select PathI... " />
+            <marker date="1475877368000" expanded="true" signature="6665:6775" ph="select PathI... missingValue" />
+            <marker date="1475877368000" expanded="true" signature="6937:7047" ph="select * fro... PathContainswhere" />
+            <marker date="1475877368000" expanded="true" signature="7144:7369" ph="select PathC... " />
+            <marker date="1475877368000" expanded="true" signature="8178:8277" ph="update Resid... " />
           </folding>
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>phase 3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>ojdbc6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

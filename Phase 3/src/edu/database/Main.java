@@ -58,7 +58,7 @@ public class Main {
                 secondOption();
                 break;
             case 3: thirdOption(); break;
-            case 4: ; break;
+            case 4: fourthOption(); break;
         }
     }
 
@@ -120,6 +120,7 @@ public class Main {
 
     private void secondOption(){
         System.out.println("Enter Health Service Name: ");
+        input.nextLine();
         String serviceName = input.nextLine();
 
         String query = "select Services.ServiceName, HealthType, LocationName, FloorID " +
@@ -163,52 +164,77 @@ public class Main {
         String endingLocattion = input.nextLine();
 
         System.out.println("Determining shortest path from " + startingLocation + "to " + endingLocattion);
-
-        // Creating the sql query to get the requested data
-        // this will return the id for paths with the same starting and ending locations
-        String pathResultSubQuery = "select PathID" +
-                                    "from Path" +
-                                    "where PathStart = ? and PathEnd = ?";
-
-        // This will figure out the number of paths for each of the ids that were return from the query above and group them by id
-        String countPathsSubQuery = "select PathID, count(PathID) as PathContainsCount" +
-                                    "from PathContains " +
-                                    "where PathID = (" + pathResultSubQuery + ")" +
-                                    "grouped by PathID";
-
-        // This will return the id of the one with the lowest
-        String minPathsSubQuery = "select PathID, min(PathContainsCount)" +
-                                  "from(" + countPathsSubQuery + ")";
-
-        // This will get the rows from path contains that mactches the id of the min returned from the above query
-        String pathContainsResult = "select * from PathContains" +
-                                    "where PathID = (" + minPathsSubQuery + ")";
-
-        // And finally, get each location, floor and PathOrder
-        String query = "select PathContains.PathOrder, Location.LocationName, Location.FloorID" +
-                       "from Location, (" + pathContainsResult + ") Result" +
-                       "Where Location.LocationID = Result.LocationID";
-
-        try{
-            ps = connection.prepareStatement(query);
-            ps.setString(1, startingLocation);
-            ps.setString(2, endingLocattion);
-            rs = ps.executeQuery();
-
-            if(rs.next()){
-                // Todo: Just print the line
-            }
-
-            rs.close();
-            ps.close();
-        }
-        catch(SQLException ex){
-            System.err.println(ex.getMessage());
-        }
+//
+//        // Creating the sql query to get the requested data
+//        // this will return the id for paths with the same starting and ending locations
+//        String pathResultSubQuery = "select PathID" +
+//                                    "from Path" +
+//                                    "where PathStart = ? and PathEnd = ?";
+//
+//        // This will figure out the number of paths for each of the ids that were return from the query above and group them by id
+//        String countPathsSubQuery = "select PathID, count(PathID) as PathContainsCount" +
+//                                    "from PathContains " +
+//                                    "where PathID = (" + pathResultSubQuery + ")" +
+//                                    "grouped by PathID";
+//
+//        // This will return the id of the one with the lowest
+//        String minPathsSubQuery = "select PathID, min(PathContainsCount)" +
+//                                  "from(" + countPathsSubQuery + ")";
+//
+//        // This will get the rows from path contains that mactches the id of the min returned from the above query
+//        String pathContainsResult = "select * from PathContains" +
+//                                    "where PathID = (" + minPathsSubQuery + ")";
+//
+//        // And finally, get each location, floor and PathOrder
+//        String query = "select PathContains.PathOrder, Location.LocationName, Location.FloorID" +
+//                       "from Location, (" + pathContainsResult + ") Result" +
+//                       "Where Location.LocationID = Result.LocationID";
+//
+//        try{
+//            ps = connection.prepareStatement(query);
+//            ps.setString(1, startingLocation);
+//            ps.setString(2, endingLocattion);
+//            rs = ps.executeQuery();
+//
+//            if(rs.next()){
+//                // Todo: Just print the line
+//            }
+//
+//            rs.close();
+//            ps.close();
+//        }
+//        catch(SQLException ex){
+//            System.err.println(ex.getMessage());
+//            ex.printStackTrace();
+//        }
 
     }
 
     private void fourthOption(){
+        System.out.println("Enter Health Service Name: ");
+        input.nextLine();
+        String serviceName = input.nextLine();
+
+        System.out.println("Enter the new LocationID: ");
+        String locationID = input.nextLine();
+
+        String query = "update ResidesIn " +
+                "set LocationID = ? " +
+                "where ServiceName = ?";
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, locationID);
+            ps.setString(2, serviceName);
+
+            int result = ps.executeUpdate();
+
+            if(result == 1)
+                System.out.printf("Update Successful!\n");
+
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+            ex.printStackTrace();
+        }
 
     }
 
