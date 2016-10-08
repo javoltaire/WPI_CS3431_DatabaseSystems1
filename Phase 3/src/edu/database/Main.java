@@ -167,8 +167,10 @@ public class Main {
 
         int shortestPath = getShortestPathID(startingLocation, endingLocattion);
 
-        if(shortestPath == -1)
+        if(shortestPath == -1) {
+            System.out.println("There is no path between these locations in the database");
             return;
+        }
 
         // And finally, get each location, floor and PathOrder
         String query = "select Path.PathID, PathStart, PathEnd, PathContains.PathOrder, " +
@@ -236,8 +238,23 @@ public class Main {
             ps.setString(2, end);
 
             rs = ps.executeQuery();
+            // This will hold the id of the shortest path
+            int shortestID = -1;
+
+            // Try to get the first row
             if(rs.next())
-                return rs.getInt("PathID");
+                shortestID = rs.getInt("PathID");
+
+            // Loop over each of the remaining rows in the table
+            while(rs.next()){
+                int tempID = rs.getInt("PathID");
+                if(tempID < shortestID)
+                    shortestID = tempID;
+            }
+
+            return shortestID;
+
+
 
         }catch(SQLException ex){
             System.err.println(ex.getMessage());
