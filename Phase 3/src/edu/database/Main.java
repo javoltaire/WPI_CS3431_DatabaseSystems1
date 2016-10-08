@@ -158,7 +158,6 @@ public class Main {
         // Ask for the starting location
         System.out.println("Enter Starting Location: ");
         String startingLocation = input.nextLine();
-        input.nextLine();
 
         // Ask for the ending location
         System.out.println("Enter Ending Location: ");
@@ -169,7 +168,11 @@ public class Main {
         int shortestPath = getShortestPathID(startingLocation, endingLocattion);
 
         if(shortestPath == -1)
+        {
+            System.out.println("There is no path between these locations in the database");
             return;
+        }
+
 
         // And finally, get each location, floor and PathOrder
         String query = "select Path.PathID, PathStart, PathEnd, PathContains.PathOrder, " +
@@ -209,7 +212,6 @@ public class Main {
                     System.out.printf("\t%d\t%s\t%s\n", node.order, node.location, node.floorID);
 
             }
-
             rs.close();
             ps.close();
         }
