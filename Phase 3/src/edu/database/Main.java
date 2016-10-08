@@ -158,9 +158,11 @@ public class Main {
         // Ask for the starting location
         System.out.println("Enter Starting Location: ");
         String startingLocation = input.nextLine();
+        input.nextLine();
 
         // Ask for the ending location
         System.out.println("Enter Ending Location: ");
+<<<<<<< HEAD
         String endingLocation = input.nextLine();
 
         System.out.println("Determining shortest path from " + startingLocation + "to " + endingLocation);
@@ -222,6 +224,56 @@ public class Main {
 //                System.out.println("There is no path between these locations in the database");
 //            }
 
+=======
+        String endingLocattion = input.nextLine();
+
+        System.out.println("Determining shortest path from " + startingLocation + " to " + endingLocattion);
+
+        int shortestPath = getShortestPathID(startingLocation, endingLocattion);
+
+        if(shortestPath == -1)
+            return;
+
+        // And finally, get each location, floor and PathOrder
+        String query = "select Path.PathID, PathStart, PathEnd, PathContains.PathOrder, " +
+                        "LocationName, FloorID " +
+                        "from Path, Location, PathContains " +
+                        "where Path.PathID = ? and " +
+                        "Location.LocationID = PathContains.LocationID and" +
+                        " Path.PathID = PathContains.PathID " +
+                        "order by PathOrder";
+
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, shortestPath);
+            rs = ps.executeQuery();
+
+            Path path = null;
+
+            if(rs.next()){
+                PathNode node = new PathNode(rs.getInt("PathOrder"), rs.getString("LocationName"),
+                        rs.getString("FloorID"));
+                path = new Path(rs.getInt("PathID"), startingLocation, endingLocattion, node);
+            }
+
+            while(rs.next()){
+                PathNode node = new PathNode(rs.getInt("PathOrder"), rs.getString("LocationName"),
+                        rs.getString("FloorID"));
+                if(path != null)
+                    path.addNode(node);
+            }
+
+            if(path != null){
+                System.out.printf("Starting Location: %s\n", startingLocation);
+                System.out.printf("End Location: %s\n", endingLocattion);
+                System.out.printf("Path ID for shortest path: %d\n", path.pathID);
+
+                for(PathNode node : path.pathNodes)
+                    System.out.printf("\t%d\t%s\t%s\n", node.order, node.location, node.floorID);
+
+            }
+
+>>>>>>> 0bf835dc885038d095d02ebc0ed82ec122d7afbc
             rs.close();
             ps.close();
         }
@@ -229,6 +281,37 @@ public class Main {
             System.err.println(ex.getMessage());
             ex.printStackTrace();
         }
+<<<<<<< HEAD
+=======
+    }
+
+    private int getShortestPathID(String start, String end){
+
+        // This will figure out the number of paths for each of the ids that were return from the query above and group them by id
+        String query = "select PathID, count(*) as PathContainsCount " +
+                "from PathContains " +
+                "where PathID IN " +
+                "(select PathID " +
+                "from Path " +
+                "where PathStart = ? and PathEnd = ?) " +
+                "group by PathID " +
+                "order by PathContainsCount ";
+
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, start);
+            ps.setString(2, end);
+
+            rs = ps.executeQuery();
+            if(rs.next())
+                return rs.getInt("PathID");
+
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+            ex.printStackTrace();
+        }
+        return -1;
+>>>>>>> 0bf835dc885038d095d02ebc0ed82ec122d7afbc
     }
 
     private void fourthOption(){
@@ -310,27 +393,43 @@ public class Main {
     }
 
     class Path{
-        String start, end;
         int pathID;
+        String start, end;
         List<PathNode> pathNodes;
 
+        public Path(int pathID, String start, String end){
+            this(pathID, start, end, new ArrayList<PathNode>());
+        }
 
-        public Path(String start, String end, List<PathNode> pathNodes){
+        public Path(int pathID, String start, String end, PathNode node){
+            this(pathID, start, end);
+            addNode(node);
+        }
+
+        public void addNode(PathNode node){
+            if(pathNodes == null)
+                pathNodes = new ArrayList<>();
+
+            if(!pathNodes.contains(node))
+                pathNodes.add(node);
+        }
+
+        public Path(int pathID, String start, String end, List<PathNode> pathNodes){
+            this.pathID = pathID;
             this.start = start;
             this.end = end;
             this.pathNodes = pathNodes;
         }
+    }
 
-        private class PathNode{
-            int order;
-            String location, floorID;
+    class PathNode{
+        int order;
+        String location, floorID;
 
-            public PathNode(int order, String location, String floorID){
-                this.order = order;
-                this.location = location;
-                this.floorID = floorID;
-            }
+        public PathNode(int order, String location, String floorID){
+            this.order = order;
+            this.location = location;
+            this.floorID = floorID;
         }
-
     }
 }
