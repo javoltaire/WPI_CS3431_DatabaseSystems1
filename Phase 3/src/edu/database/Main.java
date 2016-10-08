@@ -158,73 +158,9 @@ public class Main {
         // Ask for the starting location
         System.out.println("Enter Starting Location: ");
         String startingLocation = input.nextLine();
-        input.nextLine();
 
         // Ask for the ending location
         System.out.println("Enter Ending Location: ");
-<<<<<<< HEAD
-        String endingLocation = input.nextLine();
-
-        System.out.println("Determining shortest path from " + startingLocation + "to " + endingLocation);
-
-        // Creating the sql query to get the requested data
-        // this will return the id for paths with the same starting and ending locations
-        String pathResultSubQuery = "select PathID " +
-                                    "from Path " +
-                                    "where PathStart = ? and PathEnd = ? ";
-
-        // This will figure out the number of paths for each of the ids that were return from the query above and group them by id
-        String countPathsSubQuery = "select PathID, count(PathID) as PathContainsCount " +
-                                    "from PathContains " +
-                                    "where PathID = ( " + pathResultSubQuery + " ) " +
-                                    "grouped by PathID";
-
-        // This will return the id of the one with the lowest
-        String minPathsSubQuery = "select PathID, min(PathContainsCount)" +
-                                  "from(" + countPathsSubQuery + ")";
-
-        // This will get the rows from path contains that mactches the id of the min returned from the above query
-        String pathContainsResult = "select * from PathContains " +
-                                    "where PathID = (" + minPathsSubQuery + ")";
-
-        // And finally, get each location, floor and PathOrder
-        String query = "select PathContains.PathOrder, Location.LocationName, Location.FloorID " +
-                       "from Location, (" + pathContainsResult + ") as Result " +
-                       "Where Location.LocationID = Result.LocationID";
-
-        // Trying to have the whole thing as one string
-//        String query = "select PathContains.PathOrder, Location.LocationName, Location.FloorID " +
-//                "from Location, () Result " +
-//                "Where Location.LocationID = Result.LocationID";
-
-
-
-
-
-
-        System.out.println(query);
-
-        try{
-            ps = connection.prepareStatement(query);
-            ps.setString(1, startingLocation);
-            ps.setString(2, endingLocation);
-            rs = ps.executeQuery();
-
-            // Will keep track whether there was a result
-//            boolean hasResult = false;
-
-            // Loop through each result
-//            while(rs.next()){
-//                hasResult = true;
-//                String row = rs.getInt("PathOrder") + "\t" + rs.getString("LocationName") + "\t" + rs.getString("FloorID");
-//                System.out.println(row);
-//            }
-
-//            if(!hasResult){
-//                System.out.println("There is no path between these locations in the database");
-//            }
-
-=======
         String endingLocattion = input.nextLine();
 
         System.out.println("Determining shortest path from " + startingLocation + " to " + endingLocattion);
@@ -232,7 +168,11 @@ public class Main {
         int shortestPath = getShortestPathID(startingLocation, endingLocattion);
 
         if(shortestPath == -1)
+        {
+            System.out.println("There is no path between these locations in the database");
             return;
+        }
+
 
         // And finally, get each location, floor and PathOrder
         String query = "select Path.PathID, PathStart, PathEnd, PathContains.PathOrder, " +
@@ -272,8 +212,6 @@ public class Main {
                     System.out.printf("\t%d\t%s\t%s\n", node.order, node.location, node.floorID);
 
             }
-
->>>>>>> 0bf835dc885038d095d02ebc0ed82ec122d7afbc
             rs.close();
             ps.close();
         }
@@ -281,8 +219,6 @@ public class Main {
             System.err.println(ex.getMessage());
             ex.printStackTrace();
         }
-<<<<<<< HEAD
-=======
     }
 
     private int getShortestPathID(String start, String end){
@@ -311,7 +247,6 @@ public class Main {
             ex.printStackTrace();
         }
         return -1;
->>>>>>> 0bf835dc885038d095d02ebc0ed82ec122d7afbc
     }
 
     private void fourthOption(){
