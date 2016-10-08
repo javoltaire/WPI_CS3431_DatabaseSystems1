@@ -1,5 +1,9 @@
 #intellij
 .idea/*
 
+#java stuff
+*.class
+*out/*
+
 #lock
 ~$*

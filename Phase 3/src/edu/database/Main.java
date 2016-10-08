@@ -158,7 +158,6 @@ public class Main {
         // Ask for the starting location
         System.out.println("Enter Starting Location: ");
         String startingLocation = input.nextLine();
-        input.nextLine();
 
         // Ask for the ending location
         System.out.println("Enter Ending Location: ");
