@@ -2,6 +2,10 @@
 .idea/*
 */.idea/*
 
+#java stuff
+*.class
+*out/*
+
 #lock
 ~$*
 

@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.sql.*;
 
+/**
+ * @author Jules Voltaire - javoltaire and  Ebenezer Ampiah - ekampiah
+ * Main class with the main method
+ */
 public class Main {
     Scanner input;
     Connection connection;
@@ -39,6 +43,9 @@ public class Main {
         }
     }
 
+    /**
+     * Displays the different modes available and waits for the user to pick one
+     */
     private void requestOption(){
         String first = "1 - Report Health Provider Inforamtion";
         String second = "2 - Report Health Service Information";
@@ -49,6 +56,10 @@ public class Main {
         selectOption(input.nextInt());
     }
 
+    /**
+     * Calls the right method for each option
+     * @param option
+     */
     private void selectOption(int option){
         switch(option){
             case 1:
@@ -62,6 +73,9 @@ public class Main {
         }
     }
 
+    /**
+     * requests a providerID from the user and diplays the information about the provider
+     */
     private void firstOption(){
         System.out.println("Enter Provider ID: ");
         int providerID = input.nextInt();
@@ -118,6 +132,9 @@ public class Main {
         }
     }
 
+    /**
+     * requests a Health Service Name from the user and diplays the information about the Health Service
+     */
     private void secondOption(){
         System.out.println("Enter Health Service Name: ");
         input.nextLine();
@@ -167,21 +184,18 @@ public class Main {
 
         int shortestPath = getShortestPathID(startingLocation, endingLocattion);
 
-        if(shortestPath == -1)
-        {
+        if(shortestPath == -1) {
             System.out.println("There is no path between these locations in the database");
             return;
         }
 
-
-        // And finally, get each location, floor and PathOrder
         String query = "select Path.PathID, PathStart, PathEnd, PathContains.PathOrder, " +
-                        "LocationName, FloorID " +
-                        "from Path, Location, PathContains " +
-                        "where Path.PathID = ? and " +
-                        "Location.LocationID = PathContains.LocationID and" +
-                        " Path.PathID = PathContains.PathID " +
-                        "order by PathOrder";
+                "LocationName, FloorID " +
+                "from Path, Location, PathContains " +
+                "where Path.PathID = ? and " +
+                "Location.LocationID = PathContains.LocationID and" +
+                " Path.PathID = PathContains.PathID " +
+                "order by PathOrder";
 
         try{
             ps = connection.prepareStatement(query);
@@ -221,6 +235,12 @@ public class Main {
         }
     }
 
+    /**
+     * Grabs the id of the shortest path
+     * @param start
+     * @param end
+     * @return
+     */
     private int getShortestPathID(String start, String end){
 
         // This will figure out the number of paths for each of the ids that were return from the query above and group them by id
@@ -239,8 +259,23 @@ public class Main {
             ps.setString(2, end);
 
             rs = ps.executeQuery();
+            // This will hold the id of the shortest path
+            int shortestID = -1;
+
+            // Try to get the first row
             if(rs.next())
-                return rs.getInt("PathID");
+                shortestID = rs.getInt("PathID");
+
+            // Loop over each of the remaining rows in the table
+            while(rs.next()){
+                int tempID = rs.getInt("PathID");
+                if(tempID < shortestID)
+                    shortestID = tempID;
+            }
+
+            return shortestID;
+
+
 
         }catch(SQLException ex){
             System.err.println(ex.getMessage());
@@ -249,6 +284,9 @@ public class Main {
         return -1;
     }
 
+    /**
+     * Request a Health service name and new LocationID from the user and updates the Health service location with the new location from the user.
+     */
     private void fourthOption(){
         System.out.println("Enter Health Service Name: ");
         input.nextLine();
@@ -277,6 +315,7 @@ public class Main {
 
     }
 
+    // Model classes to convert the data
     class Provider{
         int id;
         String firstName, lastName;
